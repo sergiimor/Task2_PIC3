@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Temperature recorder</title>
+  </head>
+  <body>
+    <h2>Historical Data</h2> <!-- <h2> is use for the font size -->
+      <select name = "zones" form = "temperature_register">
+	{% for row in historical_data %} <!-- this kind of writing is for do a for with html language. It works like the python -->
+    <!--historical_data has been introduced by the function select_zone on the app.py-->
+      <option value = {{row}}>{{row}}  </opcion> <!--This is use for create a combobox -->
+	{% endfor %}
+      </select>
+      <form action="select_zone" method = "post" id="temperature_register">
+        <!--Here we will send to select_zone with the method post the variables temperature and zones. -->
+          Temperature: <input type="text" name="temperature">
+       <input type="submit">
+     </form>
+  </body>
+</html>
